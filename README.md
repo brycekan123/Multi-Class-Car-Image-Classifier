@@ -17,6 +17,10 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
 from tensorflow.keras.metrics import SparseCategoricalAccuracy
 from tensorflow.keras.callbacks import EarlyStopping
 ```
+# Load Data
+```
+data_dir = "/Users/brycekan/Downloads/PersonalPythonProjects/MultiClass/MetaData"
+```
 
 # Filtering Images and Miscellaneus Files(only including .jpeg images)
 ```
@@ -104,7 +108,7 @@ model.summary()
 - Applied early stopping to prevent overfitting.
 - Accuracy and loss plateaus @ ~7-10 epochs
 ```
-logdir = '/Users/brycekan/Downloads/MultiClassg/logs'
+logdir = '/Users/brycekan/Downloads/PersonalPythonProjects/MultiClass/logs'
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
 from tensorflow.keras.callbacks import EarlyStopping
 
@@ -151,7 +155,7 @@ print(accuracy.result().numpy())
 ![TestTesla](https://github.com/brycekan123/Multi-Class-Car-Image-Classifier/assets/119905092/6d8e4949-f849-422c-872e-a0607344d5d2)
 
 ```
-img = cv2.imread('/Users/brycekan/Downloads/TeslavsToyotaImageClassifier/TestData/TestTesla.jpeg')
+img = cv2.imread('/Users/brycekan/Downloads/PersonalPythonProjects/MultiClass/TestData/TestTesla.jpeg')
 resize = tf.image.resize(img, (256,256))
 yhat = model.predict(np.expand_dims(resize/255, 0))
 predicted_class = workdir[np.argmax(yhat)]
